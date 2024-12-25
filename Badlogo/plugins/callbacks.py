@@ -1,5 +1,6 @@
 from pyrogram import Client
 from Badlogo import app
+from Badlogo.plugins.buttons import *
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from PIL import Image, ImageDraw, ImageFont
 import io
