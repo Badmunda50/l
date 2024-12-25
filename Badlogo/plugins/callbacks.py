@@ -1,15 +1,84 @@
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client
+from Badlogo import app
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from PIL import Image, ImageDraw, ImageFont
+import io
 
-# Implementing the callback handling logic here
-
+# Add Opacity Buttons
+@app.on_callback_query()
 async def handle_callback_query(client, callback_query):
     data = callback_query.data
     chat_id = callback_query.message.chat.id
 
-    # Logic to handle different callback data
-    # You need to implement the callback logic for each option
+    if chat_id in users_data:
+        if data.startswith('color_'):
+            users_data[chat_id]['color'] = data.split('_')[1]
+            await callback_query.answer(f"Text color set to {users_data[chat_id]['color']}!", show_alert=True)
 
-    await send_edited_image(client, chat_id)
+        elif data == 'opacity_options':
+            await callback_query.message.reply_text(
+                "Adjust Opacity:",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton("-", callback_data='decrease_opacity')],
+                        [InlineKeyboardButton("+", callback_data='increase_opacity')]
+                    ]
+                )
+            )
+            await callback_query.answer()
+
+        elif data == 'increase_opacity':
+            if users_data[chat_id]['bg_opacity'] < 1.0:
+                users_data[chat_id]['bg_opacity'] += 0.1
+                await callback_query.answer(f"Opacity increased to {users_data[chat_id]['bg_opacity'] * 100}%", show_alert=True)
+            else:
+                await callback_query.answer("Opacity is already at maximum!", show_alert=True)
+
+        elif data == 'decrease_opacity':
+            if users_data[chat_id]['bg_opacity'] > 0.1:
+                users_data[chat_id]['bg_opacity'] -= 0.1
+                await callback_query.answer(f"Opacity decreased to {users_data[chat_id]['bg_opacity'] * 100}%", show_alert=True)
+            else:
+                await callback_query.answer("Opacity is already at minimum!", show_alert=True)
+
+        elif data == 'font_options':
+            await callback_query.message.reply_text(
+                "Select Font:",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton("Font 1", callback_data='font_1')],
+                        [InlineKeyboardButton("Font 2", callback_data='font_2')],
+                        [InlineKeyboardButton("Font 3", callback_data='font_3')],
+                        [InlineKeyboardButton("Font 4", callback_data='font_4')],
+                        [InlineKeyboardButton("Font 5", callback_data='font_5')],
+                        [InlineKeyboardButton("Font 6", callback_data='font_6')],
+                        [InlineKeyboardButton("Font 7", callback_data='font_7')],
+                        [InlineKeyboardButton("Font 8", callback_data='font_8')],
+                        [InlineKeyboardButton("Font 9", callback_data='font_9')],
+                        [InlineKeyboardButton("Font 10", callback_data='font_10')]
+                    ]
+                )
+            )
+            await callback_query.answer()
+
+        elif data.startswith('font_'):
+            font_number = int(data.split('_')[1])
+            font_paths = [
+                "path/to/font1.ttf",
+                "path/to/font2.ttf",
+                "path/to/font3.ttf",
+                "path/to/font4.ttf",
+                "path/to/font5.ttf",
+                "path/to/font6.ttf",
+                "path/to/font7.ttf",
+                "path/to/font8.ttf",
+                "path/to/font9.ttf",
+                "path/to/font10.ttf"
+            ]
+            users_data[chat_id]['font_path'] = font_paths[font_number - 1]
+            await callback_query.answer(f"Font set to Font {font_number}!", show_alert=True)
+
+        # Add other callback handlers as per the original code
 
 
 async def send_edited_image(client, chat_id):
@@ -57,5 +126,3 @@ async def send_edited_image(client, chat_id):
     img_byte_arr.seek(0)
 
     await client.send_photo(chat_id, img_byte_arr, caption="Here is your edited logo!")
-
-# Implement additional helper functions to handle new callbacks
