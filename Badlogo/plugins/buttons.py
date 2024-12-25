@@ -1,12 +1,11 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Badlogo.plugins.callbacks import *
 
-def get_main_menu():
+def get_buttons():
     return InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Opacity", callback_data='opacity')],
-            [InlineKeyboardButton("Font Options", callback_data='font_options')],
-            [InlineKeyboardButton("Color Options", callback_data='color_options')],
+            [InlineKeyboardButton("♥️ Red", callback_data='color_red'), InlineKeyboardButton("💚 Green", callback_data='color_green')],
+            [InlineKeyboardButton("💙 Blue", callback_data='color_blue'), InlineKeyboardButton("🖤 Black", callback_data='color_black')],
             [InlineKeyboardButton("Stroke Options", callback_data='stroke_options')],
             [InlineKeyboardButton("Shadow Options", callback_data='shadow_options')],
             [InlineKeyboardButton("Inner Shadow Options", callback_data='inner_shadow_options')],
@@ -32,8 +31,8 @@ def get_main_menu():
                 InlineKeyboardButton("Increase Size 4×", callback_data='increase_font_4x'), 
                 InlineKeyboardButton("Decrease Size 4×", callback_data='decrease_font_4x')
             ],
+            [InlineKeyboardButton("Opacity Options", callback_data='opacity_options')],
+            [InlineKeyboardButton("Font Options", callback_data='font_options')],
             [InlineKeyboardButton("3rd Text Options", callback_data='third_text_options')]
         ]
     )
-
-# Add functions to generate other specific menus if needed.
