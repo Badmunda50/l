@@ -1,4 +1,5 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from Badlogo.plugins.callbacks import *
 
 def get_main_menu():
     return InlineKeyboardMarkup(
