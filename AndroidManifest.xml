@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Open VIP can improve the speed of decompilation, resource code translate to name automatically and activate the smart editing and automatic completion function-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="20504"
+    android:versionName="2.05.04"
+    package="com.siine.ime">
+    <!-- Prevent phone from sleeping -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- View network connections -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Have full network access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Modify or delete the contents of your shared storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Control vibration -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- View network connections -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+    <!-- Read your contacts -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- Find accounts on the device -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Use certificate -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <!-- Manage accounts -->
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <!-- Read calendar events and details -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <!-- Add or modify calendar events and send email to guests without owners' knowledge -->
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <!-- Retrieve running apps -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="17" />
+    <!-- Record audio -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Read phone status and identity -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <application
+        android:label="@7F0B014A"
+        android:icon="@7F0202E1"
+        android:name="com.siine.inputmethod.latin.ThemedSiineApplication"
+        android:killAfterRestore="false"
+        android:hardwareAccelerated="true">
+        <uses-library android:name="com.google.android.maps" />
+        <activity
+            android:theme="@7F0F007F"
+            android:name="com.siine.inputmethod.core.preferences.SiinePreferencesActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:name="com.siine.inputmethod.core.setup.InstallationHelpActivity" />
+        <activity
+            android:theme="@7F0F0094"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.EditSiineActivity"
+            android:windowSoftInputMode="0x00000002" />
+        <activity
+            android:theme="@7F0F0081"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.EditTrackActivity"
+            android:windowSoftInputMode="0x00000002" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B018D"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.ListTrackSiinesActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B018D"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.ListSiineImagesActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B0120"
+            android:name="com.siine.inputmethod.core.preferences.SiineAboutActivity" />
+        <activity
+            android:theme="@7F0F0088"
+            android:name="com.siine.inputmethod.core.module.tracks.AddSiineDialogActivity" />
+        <activity
+            android:theme="@7F0F0088"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.EmptySiineDialogActivity" />
+        <activity
+            android:theme="@7F0F0088"
+            android:label="@7F0B0160"
+            android:name="com.siine.inputmethod.core.setup.LastInstallationStepDialogActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B010A"
+            android:name="com.siine.inputmethod.core.inappbilling.InAppPurchaseListActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B010B"
+            android:name="com.siine.inputmethod.core.inappbilling.InAppPurchaseDetailsActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B019C"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.GalleryActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B010F"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.ContactPickerActivity" />
+        <activity
+            android:theme="@7F0F0081"
+            android:label="@7F0B019E"
+            android:name="com.siine.inputmethod.core.module.tracks.edit.ListSetSiinesActivity" />
+        <activity
+            android:theme="@7F0F0094"
+            android:name="com.siine.inputmethod.core.module.calendar.edit.AddEventActivity"
+            android:windowSoftInputMode="0x00000002" />
+        <activity
+            android:name="com.siine.inputmethod.core.utils.LauncherActivity"
+            android:clearTaskOnLaunch="true">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@01030010"
+            android:name="com.siine.inputmethod.core.utils.ProxyActivity"
+            android:configChanges="0x400007B7" />
+        <activity
+            android:theme="@01030010"
+            android:name="com.siine.inputmethod.core.utils.AccountUtils$AuthenticatorActivity"
+            android:configChanges="0x400007B7" />
+        <service
+            android:label="@7F0B014A"
+            android:name="com.siine.inputmethod.latin.SiineLatinIme"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action
+                    android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@7F060058" />
+        </service>
+        <service
+            android:label="@7F0B002B"
+            android:name="com.android.inputmethod.latin.spellcheck.AndroidSpellCheckerService"
+            android:permission="android.permission.BIND_TEXT_SERVICE">
+            <intent-filter>
+                <action
+                    android:name="android.service.textservice.SpellCheckerService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.textservice.scs"
+                android:resource="@7F0600C2" />
+        </service>
+        <activity
+            android:label="@7F0B002E"
+            android:name="com.android.inputmethod.latin.SettingsActivity"
+            android:uiOptions="0x00000001">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <action
+                    android:name="com.siine.inputmethod.core.KEYBOARD_SETTINGS" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@7F0B002D"
+            android:name="com.android.inputmethod.latin.spellcheck.SpellCheckerSettingsActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@7F0B0014"
+            android:name="com.android.inputmethod.latin.DebugSettings">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@7F0B008F"
+            android:name="com.android.inputmethod.deprecated.languageswitcher.InputLanguageSelection">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <action
+                    android:name="com.siine.android.inputmethod.latin.INPUT_LANGUAGE_SELECTION" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name="com.android.inputmethod.latin.SuggestionSpanPickedNotificationReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action
+                    android:name="android.text.style.SUGGESTION_PICKED" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:label="SiineService"
+            android:name="com.ubikod.capptain.android.service.CapptainService"
+            android:process=":Capptain">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <action
+                    android:name="com.ubikod.capptain.ICapptainService" />
+                <data android:scheme="capptain" />
+            </intent-filter>
+            <meta-data
+                android:name="capptain:api:level"
+                android:value="19" />
+            <meta-data
+                android:name="capptain:api:id"...
+<!--Over the length of free decompile-->
